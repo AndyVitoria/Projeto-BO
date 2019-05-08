@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.14">
+    <root id="1">
+      <ServerVersion>10.6</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="postgres">
+      <ObjectId>12938</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <StateNumber>554</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>556</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Relations>sequence|table|16499|16501|1
+sequence|table|16507|16509|1
+sequence|table|16515|16517|1
+sequence|table|16523|16525|1
+sequence|table|16536|16538|1
+sequence|table|16549|16551|1
+sequence|table|16565|16567|1
+sequence|table|16588|16590|1
+</Relations>
+    </database>
+    <role id="3" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="4" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="5" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="6" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="9" parent="2" name="information_schema">
+      <ObjectId>12648</ObjectId>
+      <StateNumber>354</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="10" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <StateNumber>351</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="11" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+      <StateNumber>114</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="12" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+      <StateNumber>1</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="13" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+      <StateNumber>114</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="14" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <StateNumber>352</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionTimestamp>2018-12-29.00:46:14.472</IntrospectionTimestamp>
+      <IntrospectionStateNumber>661</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="15" parent="2" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.bthandler</Handler>
+      <HandlerId>330</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="16" parent="2" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.hashhandler</Handler>
+      <HandlerId>331</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="17" parent="2" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.gisthandler</Handler>
+      <HandlerId>332</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="18" parent="2" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.ginhandler</Handler>
+      <HandlerId>333</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="19" parent="2" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.spghandler</Handler>
+      <HandlerId>334</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="20" parent="2" name="brin">
+      <ObjectId>3580</ObjectId>
+      <Comment>block range index (BRIN) access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.brinhandler</Handler>
+      <HandlerId>335</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <extension id="21" parent="2" name="adminpack">
+      <ObjectId>16384</ObjectId>
+      <Comment>administrative functions for PostgreSQL</Comment>
+      <StateNumber>556</StateNumber>
+      <Version>1.1</Version>
+      <SchemaName>pg_catalog</SchemaName>
+      <SchemaId>11</SchemaId>
+    </extension>
+    <extension id="22" parent="2" name="plpgsql">
+      <ObjectId>12924</ObjectId>
+      <Comment>PL/pgSQL procedural language</Comment>
+      <StateNumber>506</StateNumber>
+      <Version>1.0</Version>
+      <SchemaName>pg_catalog</SchemaName>
+      <SchemaId>11</SchemaId>
+    </extension>
+    <sequence id="23" parent="14" name="bairro_id_seq">
+      <ObjectId>16523</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>657</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="24" parent="14" name="boletim_id_seq">
+      <ObjectId>16565</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>660</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="25" parent="14" name="categoria_id_seq">
+      <ObjectId>16499</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>654</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="26" parent="14" name="endereco_id_seq">
+      <ObjectId>16549</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>659</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="27" parent="14" name="item_id_seq">
+      <ObjectId>16588</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>661</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="28" parent="14" name="logradouro_id_seq">
+      <ObjectId>16536</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>658</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="29" parent="14" name="municipio_id_seq">
+      <ObjectId>16507</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>655</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="30" parent="14" name="tipo_local_id_seq">
+      <ObjectId>16515</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>656</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="31" parent="14" name="bairro">
+      <ObjectId>16525</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>658</StateNumber>
+    </table>
+    <table id="32" parent="14" name="boletim">
+      <ObjectId>16567</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>661</StateNumber>
+    </table>
+    <table id="33" parent="14" name="categoria">
+      <ObjectId>16501</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>660</StateNumber>
+    </table>
+    <table id="34" parent="14" name="endereco">
+      <ObjectId>16551</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>660</StateNumber>
+    </table>
+    <table id="35" parent="14" name="item">
+      <ObjectId>16590</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>661</StateNumber>
+    </table>
+    <table id="36" parent="14" name="logradouro">
+      <ObjectId>16538</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>659</StateNumber>
+    </table>
+    <table id="37" parent="14" name="municipio">
+      <ObjectId>16509</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>657</StateNumber>
+    </table>
+    <table id="38" parent="14" name="tipo_local">
+      <ObjectId>16517</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>660</StateNumber>
+    </table>
+    <column id="39" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>657</StateNumber>
+      <DefaultExpression>nextval(&apos;bairro_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="40" parent="31" name="bairro">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>657</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="41" parent="31" name="municipio_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>657</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="42" parent="31" name="bairro_pkey">
+      <ObjectId>16529</ObjectId>
+      <StateNumber>657</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="31" name="bairro_pkey">
+      <ObjectId>16530</ObjectId>
+      <StateNumber>657</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>bairro_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="31" name="bairro_municipio_id_fkey">
+      <ObjectId>16531</ObjectId>
+      <StateNumber>657</StateNumber>
+      <ColNames>municipio_id</ColNames>
+      <RefTableId>16509</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>municipio</RefTableName>
+      <RefKeyName>municipio_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="45" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>660</StateNumber>
+      <DefaultExpression>nextval(&apos;boletim_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="46" parent="32" name="categoria_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>660</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="32" name="endereco_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>660</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="48" parent="32" name="tipo_local_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>660</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="49" parent="32" name="data_registro">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>660</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="50" parent="32" name="hora_registro">
+      <Position>6</Position>
+      <DataType>time|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>660</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <column id="51" parent="32" name="data_ocorrencia">
+      <Position>7</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>660</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="52" parent="32" name="hora_ocorrencia">
+      <Position>8</Position>
+      <DataType>time|0s</DataType>
+      <StateNumber>660</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <index id="53" parent="32" name="boletim_pkey">
+      <ObjectId>16571</ObjectId>
+      <StateNumber>660</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="32" name="boletim_pkey">
+      <ObjectId>16572</ObjectId>
+      <StateNumber>660</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>boletim_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="32" name="boletim_categoria_id_fkey">
+      <ObjectId>16573</ObjectId>
+      <StateNumber>660</StateNumber>
+      <ColNames>categoria_id</ColNames>
+      <RefTableId>16501</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>categoria</RefTableName>
+      <RefKeyName>categoria_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="32" name="boletim_endereco_id_fkey">
+      <ObjectId>16578</ObjectId>
+      <StateNumber>660</StateNumber>
+      <ColNames>endereco_id</ColNames>
+      <RefTableId>16551</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>endereco</RefTableName>
+      <RefKeyName>endereco_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="32" name="boletim_tipo_local_id_fkey">
+      <ObjectId>16583</ObjectId>
+      <StateNumber>660</StateNumber>
+      <ColNames>tipo_local_id</ColNames>
+      <RefTableId>16517</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>tipo_local</RefTableName>
+      <RefKeyName>tipo_local_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="58" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>654</StateNumber>
+      <DefaultExpression>nextval(&apos;categoria_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="59" parent="33" name="codigo">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>654</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="60" parent="33" name="descricao">
+      <Position>3</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>654</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="61" parent="33" name="categoria_pkey">
+      <ObjectId>16505</ObjectId>
+      <StateNumber>654</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="33" name="categoria_pkey">
+      <ObjectId>16506</ObjectId>
+      <StateNumber>654</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>categoria_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>659</StateNumber>
+      <DefaultExpression>nextval(&apos;endereco_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="64" parent="34" name="referencia">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <StateNumber>659</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="65" parent="34" name="complemento">
+      <Position>3</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <StateNumber>659</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="66" parent="34" name="logradouro_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>659</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="67" parent="34" name="endereco_pkey">
+      <ObjectId>16558</ObjectId>
+      <StateNumber>659</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="34" name="endereco_pkey">
+      <ObjectId>16559</ObjectId>
+      <StateNumber>659</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>endereco_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="34" name="endereco_logradouro_id_fkey">
+      <ObjectId>16560</ObjectId>
+      <StateNumber>659</StateNumber>
+      <ColNames>logradouro_id</ColNames>
+      <RefTableId>16538</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>logradouro</RefTableName>
+      <RefKeyName>logradouro_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="70" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>661</StateNumber>
+      <DefaultExpression>nextval(&apos;item_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="71" parent="35" name="item">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>661</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="72" parent="35" name="status">
+      <Position>3</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <StateNumber>661</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="73" parent="35" name="quantidade">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>661</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="74" parent="35" name="boletim_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>661</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="75" parent="35" name="item_pkey">
+      <ObjectId>16597</ObjectId>
+      <StateNumber>661</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="76" parent="35" name="item_pkey">
+      <ObjectId>16598</ObjectId>
+      <StateNumber>661</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>item_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="35" name="item_boletim_id_fkey">
+      <ObjectId>16599</ObjectId>
+      <StateNumber>661</StateNumber>
+      <ColNames>boletim_id</ColNames>
+      <RefTableId>16567</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>boletim</RefTableName>
+      <RefKeyName>boletim_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="78" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>658</StateNumber>
+      <DefaultExpression>nextval(&apos;logradouro_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="79" parent="36" name="logradouro">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <StateNumber>658</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="80" parent="36" name="bairro_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>658</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="81" parent="36" name="logradouro_pkey">
+      <ObjectId>16542</ObjectId>
+      <StateNumber>658</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="82" parent="36" name="logradouro_pkey">
+      <ObjectId>16543</ObjectId>
+      <StateNumber>658</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>logradouro_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="83" parent="36" name="logradouro_bairro_id_fkey">
+      <ObjectId>16544</ObjectId>
+      <StateNumber>658</StateNumber>
+      <ColNames>bairro_id</ColNames>
+      <RefTableId>16525</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>bairro</RefTableName>
+      <RefKeyName>bairro_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="84" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>655</StateNumber>
+      <DefaultExpression>nextval(&apos;municipio_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="85" parent="37" name="municipio">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>655</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="86" parent="37" name="municipio_pkey">
+      <ObjectId>16513</ObjectId>
+      <StateNumber>655</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="87" parent="37" name="municipio_pkey">
+      <ObjectId>16514</ObjectId>
+      <StateNumber>655</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>municipio_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="88" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>656</StateNumber>
+      <DefaultExpression>nextval(&apos;tipo_local_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="89" parent="38" name="tipo_local">
+      <Position>2</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>656</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="90" parent="38" name="tipo_local_pkey">
+      <ObjectId>16521</ObjectId>
+      <StateNumber>656</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="91" parent="38" name="tipo_local_pkey">
+      <ObjectId>16522</ObjectId>
+      <StateNumber>656</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>tipo_local_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
