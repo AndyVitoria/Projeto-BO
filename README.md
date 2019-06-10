@@ -36,4 +36,4 @@ Realizado a segmentação foi iniciado o processo de Geocoding, que consiste em,
 
 ### Data Prediction
 
-Terminado a etapa de Data Transformation, foi iniciado a etapa de construção de um modelo preditivo baseado no histórico dos dados.
+Terminado a etapa de Data Transformation, foi iniciado a etapa de construção de um modelo preditivo baseado no comportamento histórico dos dados. Nesta etapa foi utilizado as técnicas de Deep Learning propostas pela [M4 Forecasting Competition](https://github.com/M4Competition/M4-methods/) como parametros de benchmark.
