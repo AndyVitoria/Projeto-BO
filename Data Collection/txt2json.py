@@ -5,13 +5,17 @@ import json
 import re
 import threading
 
+
+# Verifica se existe uma lista de municipios do estado do Espírito Santo restringindo a conversão
 try:
     MUNICIPIO = Arquivo.abrir('lista_municipios.txt')
 except:
     MUNICIPIO = list()
 
+# Numero de Threads a serem utilizados
+THREAD_NUM = 12
 
-CONTROL = [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+THREAD_CONTROL = [True] * THREAD_NUM
 
 
 class Conversor(threading.Thread):
@@ -37,37 +41,29 @@ class Conversor(threading.Thread):
             print("Adicionando ao buffer")
             count = 0
             tot = len(arquivos)
-            perc = 0
             for arq in arquivos:
                 count += 1
-                if  tot % count == 0:
-                    print("%s -> %.1f%%" % ( super().name, 100*count/tot))
+                if tot % count == 0:
+                    print("%s -> %.1f%%" % (super().name, 100*count/tot))
                 try:
                     csv = Arquivo.abrir(self.entrada + '/' + self.pasta + '/' + arq)
 
                     boletim = Boletim(csv, id_boletim=int(arq[:-4]))
                     if boletim.valido:
                         buffer.append(boletim.json() + ',')
-                    '''
-                    if len(buffer) >= 700 or arq == arquivos[-1]:
-                        print('Salvando buffer')
-                        for elem in buffer:
-                            elem.check()
-                            #elem.salvar(self.saida + '/' + self.pasta + '/' + str(elem.id) + '.json')
-                        buffer = list()
-                        if arq != arquivos[-1]:
-                            print("Adicionando ao buffer")
-                    '''
+
                 except ValueError:
+                    # Em caso de erro gera um arquivo de log com o nome dos arquivos e o erro gerado.
                     print(ValueError)
                     print("Nao foi possivel converter o arquivo " + self.pasta + '/' + arq)
                     Arquivo.escrever('Log_Erro.txt',
                                      ['Erro ao converter o diretorio ' + self.pasta + '/' + arq, "-- " + ValueError.__str__()])
+
             buffer[-1] = buffer[-1][:-1]
             buffer.append(']')
             print('Salvando lote: ' + self.pasta)
             Arquivo.sobrescrever(self.saida + '/' + self.pasta + '/' + self.pasta + '.json', buffer)
-            CONTROL[self.ID] = True
+            THREAD_CONTROL[self.ID] = True
         except ValueError:
             print(ValueError)
             print("Nao foi possivel converter o diretorio " + self.pasta)
@@ -307,11 +303,11 @@ def listar(lote, csv_dir, boletim_pasta):
 
 def converte(entrada, saida, lote, pasta):
     id = 0
-    num_threads = len(CONTROL)
-    while not CONTROL[id]:
+    num_threads = len(THREAD_CONTROL)
+    while not THREAD_CONTROL[id]:
         id = (id + 1) % num_threads
 
-    CONTROL[id] = False
+    THREAD_CONTROL[id] = False
     Conversor(entrada, saida, pasta, lote, id).start()
 
 
@@ -328,16 +324,12 @@ def txt2json(csv_dir, json_dir, lote):
 
         converte(csv_dir, json_dir, lote, boletim_pasta)
 
-    while False in CONTROL:
+    while False in THREAD_CONTROL:
         pass
 
 
 def main():
-    lote = 'lote.txt'
-    csv_dir = 'CSV2'
-    json_dir = 'JSON'
-
-    txt2json(csv_dir, json_dir, lote)
+    txt2json(lote='lote.txt', csv_dir='TXT', json_dir='JSON')
     return 0
 
 

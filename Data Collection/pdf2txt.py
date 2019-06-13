@@ -4,7 +4,11 @@ import os
 import platform
 import threading
 
-CONTROL = [True, True, True, True, True, True, True, True, True, True, True, True]
+
+# Numero de Threads a serem utilizados
+THREAD_NUM = 12
+
+THREAD_CONTROL = [True] * THREAD_NUM
 
 
 class ArquivoPDF(object):
@@ -61,7 +65,7 @@ class Conversor(threading.Thread):
                         print("Adicionando ao buffer")
             for elem in invalidos:
                 print('Invalido: ' + self.entrada + '/' + self.pasta + '/' + elem.nome)
-            CONTROL[self.ID] = True
+            THREAD_CONTROL[self.ID] = True
         except ValueError:
             print(ValueError)
             print("Nao foi possivel converter o diretorio " + self.pasta)
@@ -124,16 +128,15 @@ class Diretorio(object):
 
 def converte(entrada, saida, lote, pasta):
     id = 0
-    num_threads = len(CONTROL)
-    while not CONTROL[id]:
+    num_threads = len(THREAD_CONTROL)
+    while not THREAD_CONTROL[id]:
         id = (id + 1) % num_threads
 
-    CONTROL[id] = False
+    THREAD_CONTROL[id] = False
     Conversor(entrada, saida, pasta, lote, id).start()
 
 
-def pdf2txt(lote_dir, pdf_dir, csv_dir):
-    lote = lote_dir
+def pdf2txt(lote, pdf_dir, csv_dir):
     pdf = Diretorio(pdf_dir)
     csv = Diretorio(csv_dir)
 
@@ -148,12 +151,12 @@ def pdf2txt(lote_dir, pdf_dir, csv_dir):
         entrada = pdf.dir
         saida = csv.dir
         converte(entrada, saida, lote, pasta)
-    while False in CONTROL:
+    while False in THREAD_CONTROL:
         pass
 
 
 def main():
-    pdf2txt(lote_dir='lote.txt', pdf_dir='PDF', csv_dir='CSV')
+    pdf2txt(lote='lote.txt', pdf_dir='PDF', csv_dir='TXT')
     return
 
 
