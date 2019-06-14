@@ -1,6 +1,4 @@
-# Analise de séries temporáis de roubos no estado do Espirito Santo
-
-A documentação completa, junto com o diario de desenvolvimento pode ser encontrado na [Wiki](#) do repositório.
+# Analise de séries temporáis de furto e roubos no estado do Espírito Santo
 
 ## Motivação
 
