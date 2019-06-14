@@ -8,7 +8,7 @@ Segundo a legislação brasileira, (citar o artigo). Dessa forma a SESP-ES (Secr
 
 ## Etapas do Projeto
 
-Este projeto foi divido em 5 etapas principais: Data Collection, Data Cleaning, Data Transformation, Data Prediction e Data Visualization.
+Este projeto foi divido em 4 etapas principais: Data Collection, Data Cleaning & Transformation, Data Prediction e Data Visualization.
 
 ### Data Collection
 
@@ -16,7 +16,7 @@ A SESP-ES, disponibiliza em um [_Repositório_](https://boletins.sesp.es.gov.br)
 Para realização deste projeto foi feito a coleta de 244 lotes, totalizando 135 GB (aproximadamente 2.5 milhões de boletins). Contendo os boletins registrados no periodo de 01 de janeiro de 2013 até 31 de janeiro de 2019.
 
 
-### Data Cleaning
+### Data Cleaning & Transformation
 
 Após a coleta dos lotes, os mesmos foram extraidos em um diretório e foram segmentados segundo o lote pertencente. Em seguida fora utilizado a biblioteca [_Textract_](https://textract.readthedocs.io/en/stable/)  do Python para carregar os lotes de boletins em memória e a partir desse ponto realizar a remoção de boletins invalidados pela SESP-ES. terminado essa verificação os memos foram salvos em outro diretório em formato de texto (TXT), este diretório que possui a mesma estrutura do diretório de origem dos lotes.
 
@@ -28,12 +28,50 @@ Abaixo temos a estrutura dos boletins de ocorrencia em PDF e dos lotes em JSON.
 
 {{{ Estrutura dos lotes em JSON}}}
 
-### Data Transformation
-
-Nesta etapa foi realizado a segmentação dos boletins por categoria, e não mais por lote. A partir desse ponto foi definido qual seria o dominio do problema. As transformações e tratamentos foram realziados apenas nos boletins de Categoria B, nas subcategorias 01 e 02, que pertencem a categoria de Crimes Contra Patrimônio, e dividias em Furto e Roubo, respectivamente.
+Em seguida foi realizado a segmentação dos boletins por categoria, e não mais por lote. A partir desse ponto foi definido qual seria o dominio do problema. As transformações e tratamentos foram realziados apenas nos boletins de Categoria B, nas subcategorias 01 e 02, que pertencem a categoria de Crimes Contra Patrimônio, e dividias em Furto e Roubo, respectivamente.
 
 Realizado a segmentação foi iniciado o processo de Geocoding, que consiste em, a partir do endereço, identificar as coordenadas geográficas que pertencem a esse endereço. Para isso fora utilizado sistemas denominados GIS ([_Geographic Information System_](https://en.wikipedia.org/wiki/Geographic_information_system)), inicialmente fora utilizado o GIS disponibilizado pela Google, o [_Google Maps_](https://developers.google.com/maps/documentation/geocoding/start?hl=pt-br), porém devido a limitações no numero de mapeamentos permitidos, foi realizado a troca da plataforma para a [_ArcGis_](https://developers.arcgis.com). Terminado o processo de Geocoding os boletins foram armazenados em um outro diretório a parte, este segmentado por categoria.
+
+A partir desse ponto os boletins, já mapeados, foram carregados utilizando a biblioteca [_Pandas_](https://pandas.pydata.org), em seguida foram aplicados filtros afim de remover dados que foram preenchidos de forma incorreta e foi iniciado o processo para construir o DataFrame que seria utilizado para alimentar o [_Microsoft Power BI_](https://powerbi.microsoft.com/pt-br/what-is-power-bi/) na Etapa de Visulização e os dados de Treino, Teste e Validação para a etapa de Data Prediction.
 
 ### Data Prediction
 
 Terminado a etapa de Data Transformation, foi iniciado a etapa de construção de um modelo preditivo baseado no comportamento histórico dos dados. Nesta etapa foi utilizado as técnicas de Deep Learning propostas pela [M4 Forecasting Competition](https://github.com/M4Competition/M4-methods/) como parametros de benchmark.
+
+
+
+### Data Visualization
+
+Uma vez que os dados foram coletados, limpos e estruturados foi construido um relatório, afim de melhor visualizar e estudar os dados. Nesta etapa fora utilizado o [_Microsoft Power BI_](https://powerbi.microsoft.com/pt-br/what-is-power-bi/) pela sua flexibilidade e facilidade para criar um relatório interativo aonde é possivel filtar e melhor estudar os dados. 
+
+O relatório foi dividido em 2 páginas, a primeria estudando o comportamento histórico de ocorrência de Roubos e Furtos na região da grande Vitória. A segunda apresentando os resultados obtidos pelo modelo preditivo.
+
+#### Pagina 1. Análise Histórica
+
+{{ Imagem da Primeira página do relatório}}
+
+**Legenda:**
+1. ----
+2. ----
+3. ----
+4. ----
+5. ----
+6. ----
+7. ----
+8. ----
+9. ----
+
+#### Página 2. Previsão
+
+{{ Imagem da Segunda página do relatório}}
+
+**Legenda:**
+1. ----
+2. ----
+3. ----
+4. ----
+5. ----
+6. ----
+7. ----
+8. ----
+9. ----
