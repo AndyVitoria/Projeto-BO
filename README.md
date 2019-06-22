@@ -1,6 +1,4 @@
-# Analise de séries temporáis de roubos no estado do Espirito Santo
-
-A documentação completa, junto com o diario de desenvolvimento pode ser encontrado na [Wiki](#) do repositório.
+# Analise de séries temporáis de furto e roubos no estado do Espírito Santo
 
 ## Motivação
 
@@ -24,7 +22,15 @@ O proximo passo foi realizar a extração das informações contidas nos boletin
 
 Abaixo temos a estrutura dos boletins de ocorrencia em PDF e dos lotes em JSON.
 
-{{{Imagem do BO em PDF}}}
+![Boletim de ocorrência](https://github.com/andrebvitoria/Projeto-BO/blob/master/Images/BO/BO.png)
+
+**Legenda:**
+1. Data de Registro
+2. Tipo de Local
+3. Data de ocorrência
+4. Categoria do BO e descrição da Categoria
+5. Endereço aonde ocorreu o incidente
+6. Objetos relacionados ao incidente
 
 {{{ Estrutura dos lotes em JSON}}}
 
@@ -48,18 +54,18 @@ O relatório foi dividido em 2 páginas, a primeria estudando o comportamento hi
 
 #### Pagina 1. Análise Histórica
 
-{{ Imagem da Primeira página do relatório}}
+![Análise Histórica de Ocorrência de Roubos e Furtos](https://github.com/andrebvitoria/Projeto-BO/blob/master/Images/Report/Pagina_1.JPG)
 
 **Legenda:**
-1. ----
-2. ----
-3. ----
-4. ----
-5. ----
-6. ----
-7. ----
-8. ----
-9. ----
+1. Título do relatório
+2. Seção de filtros. (Município, Bairro, Categoria e Data de ocorrência)
+3. Mapa de Calor da Região Metropolitana da Grande Vitória
+4. Gráfico de Barras interativo com o indicie de ocorrência de Roubos/Furtos por Município e Bairro.
+5. Indicador total de ocorrências com base nos filtros aplicados.
+6. Indicador de ocorrências diárias com base nos filtros aplicados.
+7. Rank com as 10 categorias que mais ocorreram.
+8. Gráfico de Barras interativo com a distribuição de ocorrência a cada 15 minutos ao decorrer do dia (24h).
+9. Gráfico de Linhas interativo com o histórico de ocorrência de Roubos/Furtos dos municípios.
 
 #### Página 2. Previsão
 
