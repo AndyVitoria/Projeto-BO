@@ -11,7 +11,7 @@ Este projeto foi divido em 4 etapas principais: Data Collection, Data Cleaning &
 ### Data Collection
 
 A SESP-ES, disponibiliza em um [_Repositório_](https://boletins.sesp.es.gov.br) publico, divididos em lotes, todos os boletins registrado no estado do Espírito Santo em forato PDF. Com isso foi realizado a coleta desses lotes utilizando o [_Aria2_](https://aria2.github.io/manual/pt/html/index.html).
-Para realização deste projeto foi feito a coleta de 244 lotes, totalizando 135 GB (aproximadamente 2.5 milhões de boletins). Contendo os boletins registrados no periodo de 01 de janeiro de 2013 até 31 de janeiro de 2019.
+Para realização deste projeto foi feito a coleta de 244 lotes, totalizando 135 GB (aproximadamente 2.5 milhões de boletins). Contendo os boletins registrados no periodo de 01 de janeiro de 2013 até 31 de dezembro de 2018.
 
 
 ### Data Cleaning & Transformation
@@ -32,7 +32,50 @@ Abaixo temos a estrutura dos boletins de ocorrencia em PDF e dos lotes em JSON.
 5. Endereço aonde ocorreu o incidente
 6. Objetos relacionados ao incidente
 
-{{{ Estrutura dos lotes em JSON}}}
+
+```JSONasPython
+  [
+    {
+      "id": int,
+      "registrado": [date, time],
+      "data": [date, time],
+      "codigo": string,
+      "descricao": string,
+      "tipo_de_local": string,
+      "local": string,
+      "complemento": string,
+      "bairro": string,
+      "municipio": string,
+      "referencia": string,
+      "item": { 
+          string: [string, string, string],
+          ...
+          string: [string, string, string],
+      }
+    },
+  ]
+```
+Exemplo.:
+```json
+[
+  {
+    "id": 29792131,
+    "registrado": ["26/08/2016", "15:25"],
+    "data": ["22/08/2016", "20:00"],
+    "codigo": "B01A",
+    "descricao": "CRIMES CONTRA PATRIM\u00d4NIO: FURTO: A PESSOA EM VIA P\u00daBLICA",
+    "tipo_de_local": "VIA P\u00daBLICA",
+    "local": "RUA ALEXANDRE CALMON",
+    "complemento": "",
+    "bairro": "CENTRO",
+    "municipio": "COLATINA",
+    "referencia": "PERTO DA MANTEL",
+    "item": {
+      "1": ["APARELHOS TELEFONICOS", "ROUBADO", "1"]
+    }
+  }
+]
+```
 
 Em seguida foi realizado a segmentação dos boletins por categoria, e não mais por lote. A partir desse ponto foi definido qual seria o dominio do problema. As transformações e tratamentos foram realziados apenas nos boletins de Categoria B, nas subcategorias 01 e 02, que pertencem a categoria de Crimes Contra Patrimônio, e dividias em Furto e Roubo, respectivamente.
 
@@ -67,17 +110,18 @@ O relatório foi dividido em 2 páginas, a primeria estudando o comportamento hi
 8. Gráfico de Barras interativo com a distribuição de ocorrência a cada 15 minutos ao decorrer do dia (24h).
 9. Gráfico de Linhas interativo com o histórico de ocorrência de Roubos/Furtos dos municípios.
 
-#### Página 2. Previsão
+#### Página 2. Análise Preditiva
 
-{{ Imagem da Segunda página do relatório}}
+![Análise Preditiva de Ocorrência de Roubos e Furtos](https://github.com/andrebvitoria/Projeto-BO/blob/master/Images/Report/Pagina_2.JPG)
 
 **Legenda:**
-1. ----
-2. ----
-3. ----
-4. ----
-5. ----
-6. ----
-7. ----
-8. ----
-9. ----
+1. Título do relatório
+2. Seção de filtros. (Município, Bairro, Categoria e Data de ocorrência)
+3. Mapa de Calor da Região Metropolitana da Grande Vitória
+4. Gráfico de Barras interativo com o indicie de ocorrência de Roubos/Furtos por Município e Bairro.
+5. Indicador total de ocorrências com base nos filtros aplicados.
+6. Indicador de ocorrências diárias com base nos filtros aplicados.
+7. Rank com as 10 categorias que mais ocorreram.
+8. Gráfico de Barras interativo com a distribuição de ocorrência a cada 15 minutos ao decorrer do dia (24h).
+9. Gráfico de Linhas interativo com o histórico de ocorrência de Roubos/Furtos dos municípios.
+
