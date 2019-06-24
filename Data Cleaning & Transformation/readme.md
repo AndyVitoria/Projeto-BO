@@ -2,9 +2,7 @@
 
 ## Estrutura de Pastas
 
-O sistema é dividido em etapas, e os resultados de cada etapa são armazenados em sub-pastas.
-
-Para criar as pastas necessárias para execução do Projeto basta executar o arquivo **'build_folder'**:
+O sistema é dividido em etapas, e os resultados de cada etapa são armazenados em sub-pastas. Para criar as pastas necessárias para execução do Projeto basta executar o arquivo **'build_folder'**:
 
 Windows:
     
@@ -13,16 +11,6 @@ Windows:
 Linux:
     
     $ ./build_folder.sh
-
-Ex.:
-
-1. **_PDF_**/**__lote_1__**/**__bo.pdf__**
-2. **_TXT_**/**__lote_1__**/**__bo.txt__**
-3. **_JSON_**/**__lote_1__**/**__lote_1.json__**
-4. **_MAPEADOS_**/**__lote_1__**/**__lote_1.json__**
-5. **_BOLETIM_**/**__B__**/**__B01__**/**__boletim.json__**
-6. **_DATAFRAME_**/**__DF_1__**/**__dataframe_1_pbi.json__**
-
 
 ## Funções
 
