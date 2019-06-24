@@ -48,9 +48,9 @@ Abaixo temos a estrutura dos boletins de ocorrencia em PDF e dos lotes em JSON.
       "municipio": string,
       "referencia": string,
       "item": { 
-          int: [string, string, int],
+          string: [string, string, string],
           ...
-          int: [string, string, int],
+          string: [string, string, string],
       }
     },
   ]
@@ -71,7 +71,7 @@ Exemplo.:
     "municipio": "COLATINA",
     "referencia": "PERTO DA MANTEL",
     "item": {
-      1: ["APARELHOS TELEFONICOS", "ROUBADO", 1]
+      "1": ["APARELHOS TELEFONICOS", "ROUBADO", "1"]
     }
   }
 ]
