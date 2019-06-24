@@ -12,7 +12,7 @@ def data_preparation(df, start_date, end_date):
 
     # Caso não cubra, preenche os dados faltando com 0
     data = list()
-    temp_date = start_date
+    #temp_date = start_date
     for i in range(range_date):
         temp_date = start_date + timedelta(days=i)
         temp = df[df.data == temp_date.__str__()].label.values
@@ -33,12 +33,12 @@ def load_train_test_validation(df_dir, df_base_name):
     return df_train, df_test, df_validation
 
 
-
-
 def main():
     fh = 15  # forecasting horizon
     freq = 3  # data frequency
     in_size = 30  # number of points used as input for each forecast
+
+    day_freq = 7
 
     num_prediction = 5
 
@@ -68,11 +68,6 @@ def main():
         data_validation.append(data_preparation(df_validation[df_validation.municipio == m], start_validation_date, end_validation_date))
 
     data_all_clean = data_all.copy()
-    #data_validation = np.array(data_validation)
-
-
-    #print("\n\nTREINANDO O MODELO E PREVENDO OS DADOS")
-    #data_prediction, smape_list, mase_list = m4_predict(data_all, in_size, freq, fh)
 
     print("\n\nCONSTRUINDO DATAFRAME COM OS RESULTADOS")
     prediction_dataframe_values = list()
@@ -80,6 +75,7 @@ def main():
     for pred_name in prediction_tec_name:
         print("\n\nTREINANDO O MODELO:", pred_name)
         data_all = data_all_clean
+
         for n in range(num_prediction):
             print("\n\nTREINANDO O MODELO E PREVENDO OS DADOS PARA O DIA:", n+1)
             data_all = np.array(data_all)
@@ -89,11 +85,11 @@ def main():
                 for j in range(data_prediction[i].size):
                     prediction_date = (start_validation_date + timedelta(weeks=n, days=-1)).__str__()
                     prediction_day = (start_validation_date + timedelta(weeks=n, days=j)).__str__()
-                    prediction_dataframe_values.append([prediction_day, int(data_prediction[i][j]), data_validation[i][(n*7)+j], RMGV[i], prediction_date, pred_name])
+                    prediction_dataframe_values.append([prediction_day, int(data_prediction[i][j]), data_validation[i][(n*day_freq)+j], RMGV[i], prediction_date, pred_name])
 
             data_all = list(data_all)
             for i in range(len(data_all)):
-                data_all[i] = np.append(data_all[i], data_validation[i][n*7: (n+1)*7])
+                data_all[i] = np.append(data_all[i], data_validation[i][n*day_freq: (n+1)*day_freq])
 
     df_prediction = pd.DataFrame(prediction_dataframe_values, columns=['dia', 'value', 'real', 'municipio', 'prediction_date', 'method'])
     df_prediction = df_prediction.set_index('prediction_date')
