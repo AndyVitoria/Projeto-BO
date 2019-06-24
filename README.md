@@ -113,7 +113,6 @@ O relatório foi dividido em 2 páginas, a primeria estudando o comportamento hi
 #### Página 2. Análise Preditiva
 
 ![Análise Preditiva de Ocorrência de Roubos e Furtos](https://github.com/andrebvitoria/Projeto-BO/blob/master/Images/Report/Pagina_2.JPG)
-{{ Imagem da Segunda página do relatório}}
 
 **Legenda:**
 1. Título do relatório
