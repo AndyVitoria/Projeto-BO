@@ -34,23 +34,28 @@ def load_train_test_validation(df_dir, df_base_name):
 
 
 def main():
+    # Variáveis do M4
     fh = 15  # forecasting horizon
     freq = 3  # data frequency
     in_size = 30  # number of points used as input for each forecast
 
+    # Variáveis  da predição
     day_freq = 7
-
     num_prediction = 5
 
+    # Lista de técnicas utilizadas
     prediction_tec_name = ['RNN_BENCH']
 
+    # Variáveis do diretório dos dataframes
     df_base_name = 'dataframe_03'
     df_dir = '../Data Cleaning & Transformation/DATAFRAME/DF_01/'
 
+    # Datas de filtragem dos dados
     start_validation_date = date(2018, 1, 1)
     end_validation_date = date(2018, 12, 31)
     start_train_date = date(2013, 1, 1)
     end_train_date = date(2017, 12, 31)
+
 
     print("\n\nCAREGANDO DADOS")
     df_train, df_test, df_validation = load_train_test_validation(df_dir, df_base_name)
@@ -93,6 +98,7 @@ def main():
 
     df_prediction = pd.DataFrame(prediction_dataframe_values, columns=['dia', 'value', 'real', 'municipio', 'prediction_date', 'method'])
     df_prediction = df_prediction.set_index('prediction_date')
+
     print("\n\nSALVANDO RESULTADOS")
     df_prediction.to_csv(df_dir + df_base_name + '_prediction_weekly.csv')
 
